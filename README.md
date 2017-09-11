@@ -1,5 +1,5 @@
 # dlib-models
-This repository contains trained models created by me (Davis King).  They are provided as part of the dlib example programs, which are intended to be educational documents that explain how to use various parts of the dlib library.  As far as I am concerned, anyone can do whatever they want with these model files.  However, the models are trained on datasets might fall under more restrictive licenses.  The details are summarized below for each model file.
+This repository contains trained models created by me (Davis King).  They are provided as part of the dlib example programs, which are intended to be educational documents that explain how to use various parts of the dlib library.  As far as I am concerned, anyone can do whatever they want with these model files.  However, the models are trained on datasets that might fall under more restrictive licenses.  The details are summarized below for each model file.
 
 * dlib_face_recognition_resnet_model_v1.dat.bz2
   
