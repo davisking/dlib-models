@@ -1,5 +1,5 @@
 # dlib-models
-This repository contains trained models created by me (Davis King).  They are provided as part of the dlib example programs, which are intended to be educational documents that explain how to use various parts of the dlib library.  As far as I am concerned, anyone can do whatever they want with these model files.  However, the models are trained on datasets that might fall under more restrictive licenses.  The details are summarized below for each model file.
+This repository contains trained models created by me (Davis King).  They are provided as part of the dlib example programs, which are intended to be educational documents that explain how to use various parts of the dlib library.  As far as I am concerned, anyone can do whatever they want with these model files as I've released them into the public domain.  Details describing how each model was created are summarized below. 
 
 * dlib_face_recognition_resnet_model_v1.dat.bz2
   
@@ -43,5 +43,9 @@ This repository contains trained models created by me (Davis King).  They are pr
       300 faces In-the-wild challenge: Database and results. 
       Image and Vision Computing (IMAVIS), Special Issue on Facial Landmark Localisation "In-The-Wild". 2016.
    
-   The license for this dataset excludes commercial use.  So you should contact Imperial College London to find out if it's OK for you use use this model in a commercial product.
+   The license for this dataset excludes commercial use and Stefanos Zafeiriou,
+   one of the creators of the dataset, asked me to include a note here saying
+   that the trained model therefore can't be used in a commerical product.  So
+   you should contact a lawyer or talk to Imperial College London to find out
+   if it's OK for you to use this model in a commercial product.  
     
