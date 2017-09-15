@@ -3,10 +3,14 @@ This repository contains trained models created by me (Davis King).  They are pr
 
 * dlib_face_recognition_resnet_model_v1.dat.bz2
   
-  This file is trained on about 3 million images I scraped from the internet.  The list of URLs was obtained via
-  google searches as well as the lists of URLs provided by the VGG face dataset (http://www.robots.ox.ac.uk/~vgg/data/vgg_face/) and face scrub dataset (http://vintage.winklerbros.net/facescrub.html). 
+  This model is a ResNet network with 27 conv layers.  It's essentially a version of the ResNet-34 network from the paper Deep Residual Learning for Image Recognition by He, Zhang, Ren, and Sun with a few layers removed and the number of filters per layer reduced by half.  
+
+  The network was trained from scratch on a dataset of about 3 million faces. This dataset is derived from a number of datasets.  The face scrub dataset (http://vintage.winklerbros.net/facescrub.html), the VGG dataset (http://www.robots.ox.ac.uk/~vgg/data/vgg_face/), and then a large number of images I scraped from the internet.  I tried as best I could to clean up the dataset by removing labeling errors, which meant filtering out a lot of stuff from VGG.  I did this by repeatedly training a face recognition CNN and then using graph clustering methods and a lot of manual review to clean up the dataset.  In the end about half the images are from VGG and face scrub.  Also, the total number of individual identities in the dataset is 7485.  I made sure to avoid overlap with identities in LFW.
+
+  The network training started with randomly initialized weights and used a structured metric loss that tries to project all the identities into non-overlapping balls of radius 0.6.  The loss is basically a type of pair-wise hinge loss that runs over all pairs in a mini-batch and includes hard-negative mining at the mini-batch level.
+
+  The resulting model obtains a mean error of 0.993833 with a standard deviation of 0.00272732 on the LFW benchmark. 
   
-  I spent a lot of time fixing the annotations and creating new annotations for new identities. 
 
 * mmod_dog_hipsterizer.dat.bz2
 
