@@ -35,6 +35,14 @@ This repository contains trained models created by me (Davis King).  They are pr
 
   This is trained on the venerable ImageNet dataset.  
   
+* shape_predictor_5_face_landmarks.dat.bz2
+  
+  This is a 5 point landmarking model which identifies the corners of the eyes and bottom of the nose.  It is 
+  trained on the [dlib 5-point face landmark dataset](http://dlib.net/files/data/dlib_faces_5points.tar), which consists of
+  7198 faces.  I created this dataset by downloading images from the internet and annotating them with dlib's imglab tool.
+  
+  The exact program that produced the model file can be found [here](https://github.com/davisking/dlib/blob/master/tools/archive/train_face_5point_model.cpp).
+  
 * shape_predictor_68_face_landmarks.dat.bz2
  
   This is trained on the ibug 300-W dataset (https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/)
