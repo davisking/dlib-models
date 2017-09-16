@@ -43,6 +43,8 @@ This repository contains trained models created by me (Davis King).  They are pr
   
   The exact program that produced the model file can be found [here](https://github.com/davisking/dlib/blob/master/tools/archive/train_face_5point_model.cpp).
   
+  This model is designed to work well with dlib's HOG face detector and the CNN face detector (the one in mmod_human_face_detector.dat). 
+  
 * shape_predictor_68_face_landmarks.dat.bz2
  
   This is trained on the ibug 300-W dataset (https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/)
@@ -56,4 +58,7 @@ This repository contains trained models created by me (Davis King).  They are pr
    that the trained model therefore can't be used in a commerical product.  So
    you should contact a lawyer or talk to Imperial College London to find out
    if it's OK for you to use this model in a commercial product.  
-    
+ 
+   Also note that this model file is designed for use with dlib's HOG face detector.  That is, it expects the bounding
+   boxes from the face detector to be aligned a certain way, the way dlib's HOG face detector does it.  It won't work
+   as well when used with a face detector that produces differently aligned boxes.
