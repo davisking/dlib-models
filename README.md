@@ -61,7 +61,7 @@ This repository contains trained models created by me (Davis King).  They are pr
  
    Also note that this model file is designed for use with dlib's HOG face detector.  That is, it expects the bounding
    boxes from the face detector to be aligned a certain way, the way dlib's HOG face detector does it.  It won't work
-   as well when used with a face detector that produces differently aligned boxes.
+   as well when used with a face detector that produces differently aligned boxes, such as the CNN based mmod_human_face_detector.dat face detector. 
 
 * mmod_rear_end_vehicle_detector.dat.bz2
  
