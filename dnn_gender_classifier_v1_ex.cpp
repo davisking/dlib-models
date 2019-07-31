@@ -37,8 +37,6 @@
 #include <dlib/data_io.h>
 #include <dlib/image_processing/frontal_face_detector.h>
 
-#include "resnet.h"
-
 #include <iostream>
 #include <iterator>
 
@@ -251,11 +249,9 @@ int main(int argc, char** argv) try {
 			auto shape = sp(in, face);
 			if (shape.num_parts())
 			{
-				std::vector<full_object_detection> shapes;
-				dlib::array<matrix<rgb_pixel>> face_chips;
-				shapes.push_back(shape);
-				extract_image_chips(in, get_face_chip_details(shapes, 32), face_chips);
-				matrix<float, 1, 2> p = mat(snet(face_chips[0]));
+				matrix<rgb_pixel> face_chip;
+				extract_image_chip(in, get_face_chip_details(shape, 32), face_chip);
+				matrix<float, 1, 2> p = mat(snet(face_chip));
 				if (p(0) < p(1))
 				{
 					gender = male_label;
