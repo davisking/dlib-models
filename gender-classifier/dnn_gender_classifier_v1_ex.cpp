@@ -44,7 +44,7 @@
 using namespace std;
 using namespace dlib;
 
-const char* VERSION = "1.0";
+const char* VERSION = "1.1";
 
 // ----------------------------------------------------------------------------------------
 
