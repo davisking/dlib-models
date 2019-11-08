@@ -59,7 +59,7 @@ template <int N, typename SUBNET> using ares_ = relu<block<N, affine, 1, SUBNET>
 template <typename SUBNET> using alevel1 = avg_pool<2, 2, 2, 2, ares_<64, SUBNET>>;
 template <typename SUBNET> using alevel2 = avg_pool<2, 2, 2, 2, ares_<32, SUBNET>>;
 
-using agender_type = loss_multiclass_log<fc<2, dropout<relu<fc<16, dropout<alevel1<alevel2< input_rgb_image_sized<32>>>>>>>>>;
+using agender_type = loss_multiclass_log<fc<2, multiply<relu<fc<16, multiply<alevel1<alevel2< input_rgb_image_sized<32>>>>>>>>>;
 
 // ----------------------------------------------------------------------------------------
 
