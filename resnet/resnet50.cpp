@@ -29,15 +29,16 @@ int main() try
 
     // However in this example we will learn how to load the
     // ImageNet pretrained ResNet50 model from disk.
-    resnet<affine>::l50 resnet50;
+    resnet<bn_con>::l50 resnet50;
     std::vector<string> labels;
-    deserialize("resnet/resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
+    deserialize("resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
 
     // To change the loss layer and the fc layer while keeping the pretrained backbone:
     auto backbone = resnet50.subnet().subnet();
     using net_type = loss_metric<fc_no_bias<128, decltype(backbone)>>;
     net_type net;
-    cout << net << endl;
+    // copy the backbone to the newly defined network
+    net.subnet().subnet() = backbone;
 
     // From this point on, we can train the new network using this pretrained backbone.
 
