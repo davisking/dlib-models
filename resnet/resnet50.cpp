@@ -27,8 +27,8 @@ int main() try
         model::infer tnet; // testing model for inference
     }
 
-	// However in this example we will learn how to load the
-	// ImageNet pretrained ResNet50 model from disk.
+    // However in this example we will learn how to load the
+    // ImageNet pretrained ResNet50 model from disk.
     resnet<affine>::l50 resnet50;
     std::vector<string> labels;
     deserialize("resnet/resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
