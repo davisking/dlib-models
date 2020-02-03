@@ -33,16 +33,18 @@ int main() try
     std::vector<string> labels;
     deserialize("resnet/resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
 
+    // The ResNet50 backbone
+    auto backbone = resnet50.subnet().subnet();
+
     // We can now assign ResNet50's backbone to our network skipping the different layers,
     // in our case, the loss layer and the fc layer:
     model::train net;
-    net.subnet().subnet() = resnet50.subnet().subnet();
+    net.subnet().subnet() = backbone;
 
     // An alternative way to use the pretrained network on a different network is
     // to extract the relevant part of the network (we remove loss and fc layers),
     // stack the new layers on top of it and assign the network
     // To change the loss layer and the fc layer while keeping the pretrained backbone:
-    auto backbone = resnet50.subnet().subnet();
     using net_type = loss_metric<fc_no_bias<128, decltype(backbone)>>;
     net_type net2;
     // copy the backbone to the newly defined network
