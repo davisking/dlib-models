@@ -31,7 +31,7 @@ int main() try
     // ResNet50 classifier trained on ImageNet
     resnet<bn_con>::l50 resnet50;
     std::vector<string> labels;
-    deserialize("resnet/resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
+    deserialize("resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
 
     // The ResNet50 backbone
     auto backbone = resnet50.subnet().subnet();
