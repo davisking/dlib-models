@@ -24,6 +24,49 @@ namespace model
     using infer = net_type<affine>;
 }
 
+class visitor_lr_multiplier
+{
+public:
+
+    visitor_lr_multiplier(double new_lr_multiplier_) : new_lr_multiplier(new_lr_multiplier_) {}
+
+    template <typename T>
+    void set_learning_rate_multipler(T&) const
+    {
+        // ignore other layer detail types
+    }
+
+    template <layer_mode mode>
+    void set_learning_rate_multipler(bn_<mode>& l) const
+    {
+        l.set_learning_rate_multiplier(new_lr_multiplier);
+        l.set_bias_learning_rate_multiplier(new_lr_multiplier);
+    }
+
+    template <long nf, long nr, long nc, int sx, int sy>
+    void set_learning_rate_multipler(con_<nf,nr,nc,sx,sy>& l) const
+    {
+        l.set_learning_rate_multiplier(new_lr_multiplier);
+        l.set_bias_learning_rate_multiplier(new_lr_multiplier);
+    }
+
+    template<typename input_layer_type>
+    void operator()(size_t , input_layer_type& )  const
+    {
+        // ignore other layers
+    }
+
+    template <typename T, typename U, typename E>
+    void operator()(size_t , add_layer<T,U,E>& l)  const
+    {
+        set_learning_rate_multipler(l.layer_details());
+    }
+
+private:
+
+    double new_lr_multiplier;
+};
+
 
 int main() try
 {
@@ -31,7 +74,7 @@ int main() try
     // ResNet50 classifier trained on ImageNet
     resnet<bn_con>::l50 resnet50;
     std::vector<string> labels;
-    deserialize("resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
+    deserialize("resnet/resnet50_1000_imagenet_classifier.dnn") >> resnet50 >> labels;
 
     // The ResNet50 backbone
     auto backbone = resnet50.subnet().subnet();
@@ -44,13 +87,22 @@ int main() try
     // An alternative way to use the pretrained network on a different network is
     // to extract the relevant part of the network (we remove loss and fc layers),
     // stack the new layers on top of it and assign the network
-    // To change the loss layer and the fc layer while keeping the pretrained backbone:
     using net_type = loss_metric<fc_no_bias<128, decltype(backbone)>>;
     net_type net2;
+
     // copy the backbone to the newly defined network
     net2.subnet().subnet() = backbone;
 
-    // From this point on, we can train the new network using this pretrained backbone.
+    // now we are going to adjust the learning rates of different layers
+    visit_layers_range<  2,  37, net_type, visitor_lr_multiplier>(net2, visitor_lr_multiplier(0.1));
+    visit_layers_range< 38, 106, net_type, visitor_lr_multiplier>(net2, visitor_lr_multiplier(0.01));
+    visit_layers_range<107, 153, net_type, visitor_lr_multiplier>(net2, visitor_lr_multiplier(0.001));
+    visit_layers_range<154, 192, net_type, visitor_lr_multiplier>(net2, visitor_lr_multiplier(0.0001));
+
+    // check the results
+    cout << net2 << endl;
+
+    // From this point on, we can finetune the new network using this pretrained backbone.
 
     return EXIT_SUCCESS;
 }
