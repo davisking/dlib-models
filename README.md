@@ -87,7 +87,7 @@ This repository contains trained models created by me (Davis King).  They are pr
  * resnet50_1000_imagenet_classifier.dnn.bz2
 
    This is trained on the venerable ImageNet dataset.
-   The model was trained using dlib's [example](http://dlib.net/dnn_imagenet_train_ex.cpp.html) but with the ResNet50 model defined in [`resnet.h`](https://github.com/davisking/dlib-models/blob/dlib-models/resnet/resnet.h) and a crop size of 224.
+   The model was trained using dlib's [example](http://dlib.net/dnn_imagenet_train_ex.cpp.html) but with the ResNet50 model defined in [`resnet.h`](https://github.com/davisking/dlib/blob/master/examples/resnet.h) and a crop size of 224.
 
    The performance of this model is summarized in the following table:
    
