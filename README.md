@@ -83,3 +83,15 @@ This repository contains trained models created by me (Davis King).  They are pr
   This model is thus an age predictor leveraging a ResNet-10 architecture and trained using a private dataset of about 110k different labelled images. During the training, we used an optimization and data augmentation pipeline and considered several sizes for the entry image.
   
   This age predictor model is provided for free by Cydral Technology and is licensed under the Creative Commons Zero v1.0 Universal.
+  
+ * resnet50_1000_imagenet_classifier.dnn.bz2
+
+   This is trained on the venerable ImageNet dataset.
+   The model was trained using dlib's [example](http://dlib.net/dnn_imagenet_train_ex.cpp.html) but with the ResNet50 model defined in [`resnet.h`](https://github.com/davisking/dlib/blob/master/examples/resnet.h) and a crop size of 224.
+
+   The performance of this model is summarized in the following table:
+   
+   | # crops |  top-1 acc |  top-5 acc |
+   |--------:|:----------:|:----------:|
+   |       1 |    0.77308 |    0.93352 |
+   |      10 |    0.77426 |    0.93310 |
