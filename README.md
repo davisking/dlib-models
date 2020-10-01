@@ -27,7 +27,9 @@ The original dataset is not fully annotated.  So I created a new fully annotated
 This is trained on this dataset: http://dlib.net/files/data/dlib_face_detection_dataset-2016-09-30.tar.gz.  
 I created the dataset by finding face images in many publicly available
 image datasets (excluding the FDDB dataset).  In particular, there are images
-from ImageNet, AFLW, Pascal VOC, the VGG dataset, WIDER, and face scrub.  
+from ImageNet, AFLW, Pascal VOC, the VGG dataset, WIDER, and face scrub. 
+The dataset also work in dark places. The dataset also verify the face mole and pimples.
+its also verify the structrure of the face.
   
 All the annotations in the dataset were created by me using dlib's imglab tool.
 
