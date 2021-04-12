@@ -63,6 +63,33 @@ Also note that this model file is designed for use with dlib's HOG face detector
 boxes from the face detector to be aligned a certain way, the way dlib's HOG face detector does it.  It won't work
 as well when used with a face detector that produces differently aligned boxes, such as the CNN based mmod_human_face_detector.dat face detector. 
 
+## shape_predictor_68_face_landmarks_GTX.dat.bz2
+
+The GTX model is the result of applying a set of training strategies and implementation optimization described in:
+    
+    Alvarez Casado, C., Bordallo Lopez, M. 
+    Real-time face alignment: evaluation methods, training strategies and implementation optimization. 
+    Springer Journal of Real-time image processing, 2021
+
+The resulted model is smaller, faster, smoother and more accurate. You can find all the details related to 
+the training and testing in the next Gitlab repository: https://gitlab.com/visualhealth/vhpapers/real-time-facealignment
+
+This is trained on the ibug 300-W dataset (https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/)
+  
+    C. Sagonas, E. Antonakos, G, Tzimiropoulos, S. Zafeiriou, M. Pantic. 
+    300 faces In-the-wild challenge: Database and results. 
+    Image and Vision Computing (IMAVIS), Special Issue on Facial Landmark Localisation "In-The-Wild". 2016.
+   
+The license for this dataset excludes commercial use and Stefanos Zafeiriou,
+one of the creators of the dataset, asked me to include a note here saying
+that the trained model therefore can't be used in a commerical product.  So
+you should contact a lawyer or talk to Imperial College London to find out
+if it's OK for you to use this model in a commercial product.  
+ 
+Also note that this model file with increased robustness to face detectors. However, it works best when the bounding boxes are squared,
+as it is que case with both dlib's HOG face detector or the CNN based mmod_human_face_detector.dat face detector. It won't work as well
+when used with other face detectors that produce rectangular boxes.
+
 ## mmod_rear_end_vehicle_detector.dat.bz2
  
 This model is trained on the [dlib rear end vehicles dataset](http://dlib.net/files/data/dlib_rear_end_vehicles_v1.tar).  The dataset contains images from vehicle dashcams which I manually annotated using dlib's imglab tool.
