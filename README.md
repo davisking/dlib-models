@@ -123,3 +123,7 @@ The performance of this model is summarized in the following table:
 |--------:|:----------:|:----------:|
 |       1 |    0.77308 |    0.93352 |
 |      10 |    0.77426 |    0.93310 |
+
+## dcgan_162x162_synth_faces.dnn.bz2
+
+This DCGAN Facial Synthesis model is trained to generate realistic synthetic color faces using a Deep Convolutional Generative Adversarial Networks (DCGAN) architecture. DCGANs are deep neural networks specifically designed to generate new data from a training set. This model has been trained on a large dataset of facial images, enabling it to learn the features and structures of human faces. For more information and additional resources related to this model, please visit [our GitHub repository](https://github.com/Cydral/FFgan).
