@@ -5,7 +5,7 @@ This repository contains trained models created by me (Davis King).  They are pr
   
 This model is a ResNet network with 29 conv layers.  It's essentially a version of the ResNet-34 network from the paper Deep Residual Learning for Image Recognition by He, Zhang, Ren, and Sun with a few layers removed and the number of filters per layer reduced by half.  
 
-The network was trained from scratch on a dataset of about 3 million faces. This dataset is derived from a number of datasets.  The face scrub dataset (http://vintage.winklerbros.net/facescrub.html), the VGG dataset (http://www.robots.ox.ac.uk/~vgg/data/vgg_face/), and then a large number of images I scraped from the internet.  I tried as best I could to clean up the dataset by removing labeling errors, which meant filtering out a lot of stuff from VGG.  I did this by repeatedly training a face recognition CNN and then using graph clustering methods and a lot of manual review to clean up the dataset.  In the end about half the images are from VGG and face scrub.  Also, the total number of individual identities in the dataset is 7485.  I made sure to avoid overlap with identities in LFW.
+The network was trained from scratch on a dataset of about 3 million faces. This dataset is derived from a number of datasets.  The face scrub dataset (http://vintage.winklerbros.net/facescrub.html), the VGG dataset (http://www.robots.ox.ac.uk/~vgg/data/vgg_face/), and then a large number of images I scraped from the internet.  I tried as best I could to clean up the dataset by removing labeling errors, which meant filtering out a lot of stuff from VGG.  I did this by repeatedly training a face recognition CNN and then using graph clustering methods and a lot of manual review to clean up the dataset.  In the end, about half the images are from VGG and face scrub.  Also, the total number of individual identities in the dataset is 7485.  I made sure to avoid overlap with identities in LFW.
 
  The network training started with randomly initialized weights and used a structured metric loss that tries to project all the identities into non-overlapping balls of radius 0.6.  The loss is basically a type of pair-wise hinge loss that runs over all pairs in a mini-batch and includes hard-negative mining at the mini-batch level.
 
@@ -55,7 +55,7 @@ This is trained on the ibug 300-W dataset (https://ibug.doc.ic.ac.uk/resources/f
    
 The license for this dataset excludes commercial use and Stefanos Zafeiriou,
 one of the creators of the dataset, asked me to include a note here saying
-that the trained model therefore can't be used in a commerical product.  So
+that the trained model therefore can't be used in a commercial product.  So
 you should contact a lawyer or talk to Imperial College London to find out
 if it's OK for you to use this model in a commercial product.  
  
@@ -82,12 +82,12 @@ This is trained on the ibug 300-W dataset (https://ibug.doc.ic.ac.uk/resources/f
    
 The license for this dataset excludes commercial use and Stefanos Zafeiriou,
 one of the creators of the dataset, asked me to include a note here saying
-that the trained model therefore can't be used in a commerical product.  So
+that the trained model therefore can't be used in a commercial product.  So
 you should contact a lawyer or talk to Imperial College London to find out
 if it's OK for you to use this model in a commercial product.  
  
 Also note that this model file with increased robustness to face detectors. However, it works best when the bounding boxes are squared,
-as it is que case with both dlib's HOG face detector or the CNN based mmod_human_face_detector.dat face detector. It won't work as well
+as it is the case with both dlib's HOG face detector or the CNN based mmod_human_face_detector.dat face detector. It won't work as well
 when used with other face detectors that produce rectangular boxes.
 
 ## mmod_rear_end_vehicle_detector.dat.bz2
