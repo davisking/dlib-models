@@ -7,10 +7,17 @@ This model is a ResNet network with 29 conv layers.  It's essentially a version 
 
 The network was trained from scratch on a dataset of about 3 million faces. This dataset is derived from a number of datasets.  The face scrub dataset (http://vintage.winklerbros.net/facescrub.html), the VGG dataset (http://www.robots.ox.ac.uk/~vgg/data/vgg_face/), and then a large number of images I scraped from the internet.  I tried as best I could to clean up the dataset by removing labeling errors, which meant filtering out a lot of stuff from VGG.  I did this by repeatedly training a face recognition CNN and then using graph clustering methods and a lot of manual review to clean up the dataset.  In the end, about half the images are from VGG and face scrub.  Also, the total number of individual identities in the dataset is 7485.  I made sure to avoid overlap with identities in LFW.
 
- The network training started with randomly initialized weights and used a structured metric loss that tries to project all the identities into non-overlapping balls of radius 0.6.  The loss is basically a type of pair-wise hinge loss that runs over all pairs in a mini-batch and includes hard-negative mining at the mini-batch level.
+The network training started with randomly initialized weights and used a structured metric loss that tries to project all the identities into non-overlapping balls of radius 0.6.  The loss is basically a type of pair-wise hinge loss that runs over all pairs in a mini-batch and includes hard-negative mining at the mini-batch level.
 
 The resulting model obtains a mean error of 0.993833 with a standard deviation of 0.00272732 on the LFW benchmark. 
+
+## face_recognition_densenet_model_v1.dat.bz2
   
+This model is a DenseNet network for facial recognition, showcasing the effectiveness of the BAREL approach. It achieves an accuracy of 96.1% on the LFW benchmark, using a similarity threshold of 0.55 (compared to a radius hyperparameter of 0.6). Remarkably, this performance was achieved with a training dataset nearly 8 times smaller than the one initially employed for the first published resnet version with Dlib.  
+
+To foster collaboration and continuous improvement, we have made the pre-trained model available for fine-tuning. This allows the community to contribute to enhancing the model's performance and addressing algorithmic biases. The pre-trained model can be downloaded from the project's GitHub repository, along with detailed instructions for fine-tuning and deployment.
+
+For more information on the BAREL approach, implementation details, and instructions on using the pre-trained model, please refer to the project's GitHub page: [BAREL GitHub Repository](https://github.com/Cydral/BAREL).
 
 ## mmod_dog_hipsterizer.dat.bz2
 
