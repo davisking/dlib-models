@@ -152,3 +152,13 @@ The usage of this model is the same as 'dlib_face_recognition_resnet_model_v1.da
 
 For comparison results between 'dlib_face_recognition_resnet_model_v1.dat' and 'taguchi_face_recognition_resnet_model_v1.dat' and model details, please refer to the project's GitHub page "Taguchi dlibModels GitHub Repository".
 [Taguchi models](https://github.com/TaguchiModels/dlibModels/blob/main/README_EN.md)
+
+## res50_self_supervised_cifar_10.dat.bz2
+
+This ResNet-50 model was trained using self-supervised learning (Barlow Twins method) on CIFAR-10 via [dnn_Vision_Transformer_SSL_ex.cpp](https://github.com/Cydral/dlib-models-training/blob/main/dnn_Vision_Transformer_SSL_ex.cpp).
+
+### Performance Metrics
+| Dataset   | Accuracy | Error Rate |
+|-----------|:--------:|:----------:|
+| Training  |  91.53%  |    8.47%   |
+| Testing   |  88.25%  |   11.75%   |
