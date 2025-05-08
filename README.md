@@ -139,3 +139,16 @@ This DCGAN Facial Synthesis model is trained to generate realistic synthetic col
 
 This model aims to provide a tool for AI-assisted automatic colorization, and is composed of a ResNet structure with U-Net architecture, bringing a distinctive advantage to the colorization process. The neural network formed is highly complex, with a total of 223 layers and around 41.7 million parameters, but should be usable even on configurations with an 8GB GPU card.
 The training program, also a tool leveraging the latest Dlib developments for video processing, and samples are provided more directly on [our GitHub directory](https://github.com/Cydral/Colorify).
+
+## Face recognition new model with Asian (mainly Japanese) 
+
+Taguchi collected many datasets, mainly Japanese, and trained from scratch. Even though it was trained for Japanese people, the results are comparable to the dlib model when it comes to facial recognition for Western people. Photos of Hollywood action heroes provided in the dlib example can also be classified in the same way as dlib.
+Taguchi tested the accuracy with the LFW dataset to present some objectivity.
+The result was 0.9895%.
+In total, Taguchi used over 6.5 million faces from over 16,000 people to train my facial recognition model.
+Approximately 47% of this is facial data of Japanese people (including some Asian people other than Japanese).
+
+The usage of this model is the same as 'dlib_face_recognition_resnet_model_v1.dat'. Simply swap the models.
+
+For comparison results between 'dlib_face_recognition_resnet_model_v1.dat' and 'taguchi_face_recognition_resnet_model_v1.dat' and model details, please refer to the project's GitHub page "Taguchi dlibModels GitHub Repository".
+[Taguchi models](https://github.com/TaguchiModels/dlibModels/blob/main/README_EN.md)
