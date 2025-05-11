@@ -162,3 +162,28 @@ This ResNet-50 model was trained using self-supervised learning (Barlow Twins me
 |-----------|:--------:|:----------:|
 | Training  |  91.53%  |    8.47%   |
 | Testing   |  88.25%  |   11.75%   |
+
+## vit_self_supervised_cifar_10.dat.bz2
+
+This Vision Transformer model was trained on CIFAR-10 via [dnn_Vision_Transformer_SSL_ex.cpp](https://github.com/Cydral/dlib-models-training/blob/main/dnn_Vision_Transformer_SSL_ex.cpp) using the standard CIFAR-10 dataset from:
+https://www.cs.toronto.edu/~kriz/cifar.html
+
+### Model Configuration
+- Image size: 32×32  
+- Patch size: 4×4 (64 patches)
+- Layers: 6
+- Attention heads: 8
+- Embedding dim: 192
+
+### Performance Metrics
+| Dataset   | Accuracy | Error Rate |
+|-----------|:--------:|:----------:|
+| Training  |  64.34%  |   35.66%   |
+| Testing   |  63.27%  |   36.73%   |
+
+### Notes
+While this ViT model's raw accuracy is lower than our previously published ResNet-50 (trained on the same dataset with identical parameters), it demonstrates superior generalization capabilities - potentially improvable by increasing the patience parameter. The relative performance, considering its lower parameter count (18.5M vs 23.5M for ResNet-50), remains comparable to standard benchmarks reported [here](https://github.com/cloudstrife1117/VisionTransformer). The model is exported in its training configuration to enable custom fine-tuning.
+
+References:
+1. Vision Transformer paper: https://arxiv.org/abs/2010.11929
+2. Original Transformer: https://arxiv.org/abs/1706.03762
