@@ -184,6 +184,6 @@ https://www.cs.toronto.edu/~kriz/cifar.html
 ### Notes
 While this ViT model's raw accuracy is lower than our previously published ResNet-50 (trained on the same dataset with identical parameters), it demonstrates superior generalization capabilities - potentially improvable by increasing the patience parameter. The relative performance, considering its lower parameter count (18.5M vs 23.5M for ResNet-50), remains comparable to standard benchmarks reported [here](https://github.com/cloudstrife1117/VisionTransformer). The model is exported in its training configuration to enable custom fine-tuning.
 
-References:
-1. Vision Transformer paper: https://arxiv.org/abs/2010.11929
-2. Original Transformer: https://arxiv.org/abs/1706.03762
+    References:
+    1. Vision Transformer paper: https://arxiv.org/abs/2010.11929
+    2. Original Transformer: https://arxiv.org/abs/1706.03762
