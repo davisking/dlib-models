@@ -187,3 +187,15 @@ While this ViT model's raw accuracy is lower than our previously published ResNe
     References:
     1. Vision Transformer paper: https://arxiv.org/abs/2010.11929
     2. Original Transformer: https://arxiv.org/abs/1706.03762
+
+## resnet34_stable_imagenet_1k.dat.bz2
+
+This ResNet-34 model was trained on Stable ImageNet-1K (1000 classes, 100 images/class) using supervised learning via [dnn_Vision_Transformer_Stable_ImageNet_1K.cpp](https://github.com/Cydral/dlib-models-training/blob/main/dnn_Vision_Transformer_Stable_ImageNet_1K.cpp). The dataset was prepared using [Dlib-ImageNet-Datasets](https://github.com/Cydral/Dlib-ImageNet-Datasets) with 5% (5000 images) held out for testing.
+
+### Performance Metrics
+| Metric        | Accuracy |
+|---------------|:--------:|
+| Top-1 (Test)  |  99.98%  |
+| Top-5 (Test)  | 100.00%  |
+
+Trained with SGD (lr=0.001, momentum=0.9) on 224x224 RGB images. Model contains 21.6M parameters (82.6 MiB) and is saved for potential fine-tuning.
