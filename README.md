@@ -188,7 +188,7 @@ Vision Transformer trained on Stable ImageNet-1K (1000 classes) via [dnn_Vision_
 ### Metrics
 | Metric       | Accuracy |
 |-------------|:--------:|
-| Top-1 Test  |  99.98%  |
+| Top-1 Test  |  99.76%  |
 | Top-5 Test  | 100.00%  |
 
 ### Notes
