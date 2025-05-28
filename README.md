@@ -162,3 +162,38 @@ This ResNet-50 model was trained using self-supervised learning (Barlow Twins me
 |-----------|:--------:|:----------:|
 | Training  |  91.53%  |    8.47%   |
 | Testing   |  88.25%  |   11.75%   |
+
+## resnet34_stable_imagenet_1k.dat.bz2
+
+This ResNet-34 model was trained on Stable ImageNet-1K (1000 classes, 100 images/class) using supervised learning via [dnn_Vision_Transformer_Stable_ImageNet_1K.cpp](https://github.com/Cydral/dlib-models-training/blob/main/dnn_Vision_Transformer_Stable_ImageNet_1K.cpp). The dataset was prepared using [Dlib-ImageNet-Datasets](https://github.com/Cydral/Dlib-ImageNet-Datasets) with 5% (5000 images) held out for testing.
+
+### Performance Metrics
+| Metric        | Accuracy |
+|---------------|:--------:|
+| Top-1 (Test)  |  99.98%  |
+| Top-5 (Test)  | 100.00%  |
+
+Trained with SGD (lr=0.001, momentum=0.9) on 224x224 RGB images. Model contains 21.6M parameters (82.6 MiB) and is saved for potential fine-tuning.
+
+## vit-s-16_stable_imagenet_1k.dat.bz2
+
+Vision Transformer trained on Stable ImageNet-1K (1000 classes) via [dnn_Vision_Transformer_Stable_ImageNet_1K.cpp](https://github.com/Cydral/dlib-models-training/blob/main/dnn_Vision_Transformer_Stable_ImageNet_1K.cpp).
+
+### Specs
+- 224x224 inputs | 16x16 patches
+- 4 layers | 6 heads | 234-dim embedding
+- 24.7M params (94.7 MiB)
+- SGD (lr=0.001, mom=0.9)
+
+### Metrics
+| Metric       | Accuracy |
+|-------------|:--------:|
+| Top-1 Test  |  99.76%  |
+| Top-5 Test  | 100.00%  |
+
+### Notes
+While this ViT model's raw accuracy can be lower than our previously published ResNet-34 (trained on the same dataset with identical parameters), it demonstrates superior generalization capabilities - potentially improvable by increasing the patience parameter. The relative performance, considering its similar parameter count, remains comparable to standard benchmarks also reported.
+
+    References:
+    1. Vision Transformer paper: https://arxiv.org/abs/2010.11929
+    2. Original Transformer: https://arxiv.org/abs/1706.03762
